@@ -3,7 +3,7 @@ from komodo_cafe import MenuRepository
 
 class MainMenu:
     def __init__(self):
-        self.menu_repo = MenuRepository() # imported from komodo_cafe.py
+        self.menu_repo = MenuRepository()
         self.choice = {
             "1": self.create_item,
             "2": self.delete_item,
@@ -24,7 +24,6 @@ What would you like to do?:
     
     def create_item(self):
         name = input("Name of item?\n> ") # user's input assigned to var
-        # number = input("Meal number?\n> ")
         self.menu_repo.id_plus() # THIS TOOK ME 3 HOURS TO FIGURE OUT / increments id by 1
         number = self.menu_repo.menu_number # assigns id
         description = input("Enter a description:\n> ")
