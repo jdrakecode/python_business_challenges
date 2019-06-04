@@ -24,7 +24,7 @@ What would you like to do?:
     
     def create_item(self):
         name = input("Name of item?\n> ") # user's input assigned to var
-        self.menu_repo.id_plus() # THIS TOOK ME 3 HOURS TO FIGURE OUT / increments id by 1
+        self.menu_repo.id_plus() # THIS TOOK ME FAR TOO LONG TO FIGURE OUT / increments id by 1
         number = self.menu_repo.menu_number # assigns id
         description = input("Enter a description:\n> ")
         ingredients = input("Ingredients?\n> ")
@@ -37,7 +37,6 @@ What would you like to do?:
         item_num = int(input("Enter the number of the item you wish to remove.\n> "))
         removed_item = item_num - 1
         del self.menu_repo.menu_list[removed_item]
-        # self.menu_repo.menu_list.remove(removed_item)
         print(f"\nItem number {item_num} was removed")
 
 
