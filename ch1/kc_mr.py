@@ -1,4 +1,4 @@
-# Komodo Cafe Menu
+# Komodo Cafe - Menu Repository
 
 class MenuItem:
     def __init__(self, name, number, description, ingredients, price):
