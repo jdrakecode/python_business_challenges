@@ -1,4 +1,4 @@
-# Komodo Claims
+# Komodo Claims - Claims Repository
 #  -> git fetch -> remove tomorrow morning
 class Claim:
     def __init__(self, claim_id, claim_type, amount, date_accident, date_claim, is_valid, description):
