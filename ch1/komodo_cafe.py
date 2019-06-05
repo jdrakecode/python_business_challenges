@@ -1,5 +1,5 @@
 # Interface for Komodo Cafe Menu
-from komodo_cafe import MenuRepository
+from kc_mr import MenuRepository
 
 class MainMenu:
     def __init__(self):
