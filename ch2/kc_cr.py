@@ -1,5 +1,5 @@
 # Komodo Claims - Claims Repository
-#  -> git fetch -> remove tomorrow morning
+
 class Claim:
     def __init__(self, claim_id, claim_type, amount, date_accident, date_claim, is_valid, description):
         self.claim_id = claim_id
@@ -24,5 +24,3 @@ class ClaimRepository:
         new_claim = Claim(claim_id, claim_type, amount, date_accident, date_claim, is_valid, description)
         self.claim_list.append(new_claim)
     
-    def process_claim(self):
-        pass
