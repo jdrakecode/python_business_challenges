@@ -32,11 +32,18 @@ What would you like to do?:
         self.menu_repo.create_menu_item(name, number, description, ingredients, price) # appends inputs to menu_list
         print(f"{name} has been added")
     
-    def delete_item(self):
-        item_num = int(input("Enter the number of the item you wish to remove.\n> "))
-        removed_item = item_num - 1
-        del self.menu_repo.menu_list[removed_item]
-        print(f"\nItem number {item_num} was removed")
+    def delete_item(self): # PRIORITY Stretch Goal: refactor this using method from ch2
+        cl = self.menu_repo.menu_list
+        # print(cl[0])      # *refactor this*
+        # if yorn == "y"     # *refactor this*
+        #     del cl[0]     # *refactor this*
+        if cl != []: # checks for empty list
+            item_num = int(input("Enter the number of the item you wish to remove.\n> "))
+            removed_item = item_num - 1
+            del self.menu_repo.menu_list[removed_item]
+            print(f"\nItem number {item_num} was removed")
+        else:
+            print("\nThe list is already empty!")
 
     def list_items(self):
         current_list = self.menu_repo.get_menu_list() # returns menu_list and assigns to var
