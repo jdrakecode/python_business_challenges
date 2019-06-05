@@ -1,5 +1,5 @@
 # Interface for Komodo Claims
-from komodo_claims import ClaimRepository
+from kc_cr import ClaimRepository
 
 class MainMenu:
     def __init__(self):
