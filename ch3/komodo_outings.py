@@ -1,5 +1,5 @@
 # Komodo Outings Interface
-from ko_or import OutingsRepository#, Outings
+from ko_or import OutingsRepository
 from prettytable import PrettyTable
 
 class MainMenu:
@@ -36,24 +36,23 @@ Choose a menu item:
                 print(f"\n{choice} is not a valid option")
 
     def display_all(self):
-        pt = self.pretty_table # Creates table every time *CHANGE THIS*
-        pt.field_names = ["Event Date", "Event Type", "Event Cost", "Number of People", "Cost per Person"]
-        pt.add_row([self.outings_repo.e_d, self.outings_repo.e_t, self.outings_repo.e_c, self.outings_repo.n_p, self.outings_repo.c_p])
-        print(pt)
+        # pt = self.pretty_table
+        if self.pretty_table.field_names == []:
+            print("\nEvent list is empty! Please add an event.")
+        else:
+            print(self.pretty_table)
     
     def add_outing(self):
         event_date = input("Enter event date:\n> ")
         event_type = input("Enter event type:\n> ")
-        num_people = float(input("Number of people:\n> "))
+        num_people = int(input("Number of people:\n> "))
         cost_person = float(input("Cost per person:\n> "))
         event_cost = cost_person * num_people
-        # self.outings_repo.create_outing(event_date, event_type, event_cost, num_people, cost_person)
-        self.outings_repo.e_d = f"{event_date}"
-        self.outings_repo.e_t = f"{event_type}"
-        self.outings_repo.e_c = f"{event_cost}"
-        self.outings_repo.n_p = f"{num_people}"
-        self.outings_repo.c_p = f"{cost_person}"
-        print(f"{event_type} event has been added")
+        pt = self.pretty_table
+        pt.field_names = ["Event Date", "Event Type", "Event Cost", "Number of People", "Cost per Person"]
+        pt.add_row([event_date, event_type, event_cost, num_people, cost_person])
+        print(f"\n{event_type} event has been added")
+        print(pt) # spacing offset by one space if <print(f"\n{event_type} event has been added\n", pt)> is used - reason unkown
 
     def display_cost(self):
         pass
