@@ -4,8 +4,7 @@ from prettytable import PrettyTable
 
 class MainMenu:
     def __init__(self):
-        self.outings_repo = OutingsRepository()
-        # self.outings = Outings()
+        self.out_rep = OutingsRepository()
         self.pretty_table = PrettyTable()
         self.choice = {
             "1": self.display_all,
@@ -36,26 +35,26 @@ Choose a menu item:
                 print(f"\n{choice} is not a valid option")
 
     def display_all(self):
-        # pt = self.pretty_table
         if self.pretty_table.field_names == []:
             print("\nEvent list is empty! Please add an event.")
         else:
             print(self.pretty_table)
-    
+
     def add_outing(self):
         event_date = input("Enter event date:\n> ")
         event_type = input("Enter event type:\n> ")
-        num_people = int(input("Number of people:\n> "))
-        cost_person = float(input("Cost per person:\n> "))
+        num_people = int(input("Number of people:\n> ")) # breaks if input is not a number
+        cost_person = float(input("Cost per person:\n> ")) # breaks if input is not a number
         event_cost = cost_person * num_people
-        pt = self.pretty_table
-        pt.field_names = ["Event Date", "Event Type", "Event Cost", "Number of People", "Cost per Person"]
-        pt.add_row([event_date, event_type, event_cost, num_people, cost_person])
+        self.pretty_table.field_names = ["Event Date", "Event Type", "Event Cost", "Number of People", "Cost per Person"]  # could move this outside
+        self.pretty_table.add_row([event_date, event_type, event_cost, num_people, cost_person])
+        self.out_rep.combine_costs(event_cost)
         print(f"\n{event_type} event has been added")
-        print(pt) # spacing offset by one space if <print(f"\n{event_type} event has been added\n", pt)> is used - reason unkown
+        print(self.pretty_table) # spacing offset by one space if <print(f"\n{event_type} event has been added\n", self.pretty_table)> is used - reason unkown
 
-    def display_cost(self):
-        pass
+    def display_cost(self): 
+        self.out_rep.convert_list()
+            
 
 if __name__ == "__main__":
     menu = MainMenu()
