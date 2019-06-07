@@ -33,6 +33,4 @@ class BadgeRepository:
                 break
             continue
         self.badge_dict.update({new_badge:new_door})
-
-    # def add_door(self, badge_number, door):
-    #     self.badge_dict.update({'c':3})
+            

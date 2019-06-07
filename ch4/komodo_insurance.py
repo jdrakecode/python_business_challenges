@@ -26,10 +26,38 @@ Choose a menu item:
         badge_number = input("Input badge number:\n> ")
         door = input("Input a door that it needs access to:\n> ")
         self.badge_repo.create_badge(badge_number, door)
+        for k, v in self.badge_repo.badge_dict.items():
+                    print(k, "  --  ", v)
 
     def update_badge(self):
-        pass
-
+        print("Select an option")
+        while True:
+            choice = input("1. Add a door\n2. Remove a door\n> ")
+            print("\nBadge # --  Door Access")
+            for k, v in self.badge_repo.badge_dict.items():
+                print(k, "  --  ", v)
+            if choice == "1":
+                badge_number = input("\nEnter a badge number to update:\n> ")
+                door = input("Input a door that it needs access to:\n> ")
+                for k, v in self.badge_repo.badge_dict.items():
+                    if str(k) == badge_number:
+                        v.append(door)
+                for k, v in self.badge_repo.badge_dict.items():
+                    print(k, "  --  ", v)
+                break
+            elif choice == "2":
+                badge_number = input("\nEnter a badge number to update:\n> ")
+                door = input("Input a door to delete:\n> ")
+                for k, v in self.badge_repo.badge_dict.items():
+                    if str(k) == badge_number:
+                        a = v.index(door)
+                        del v[a]
+                for k, v in self.badge_repo.badge_dict.items():
+                    print(k, "  --  ", v)
+                break
+            else:
+                print("\nPlease enter a valid option (1 or 2)")
+            
     def show_all(self):
         print("Badge # --  Door Access")
         for k, v in self.badge_repo.badge_dict.items():
