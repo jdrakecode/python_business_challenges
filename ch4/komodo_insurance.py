@@ -23,7 +23,9 @@ Choose a menu item:
         )
 
     def add_badge(self):
-        pass
+        badge_number = input("Input badge number:\n> ")
+        door = input("Input a door that it needs access to:\n> ")
+        self.badge_repo.create_badge(badge_number, door)
 
     def update_badge(self):
         pass
